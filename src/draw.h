@@ -10,7 +10,7 @@ struct VertBuffer {
 class cDraw {
     public:
         VertBuffer makeBoxMesh();
-        void render(VertBuffer vbo);
+        void render(VertBuffer vbo, double x=0, double y=0, double z=0);
 };
 extern class cDraw Draw;
 
