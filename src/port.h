@@ -1,3 +1,5 @@
+#define GL_GLEXT_PROTOTYPES
+
 #if !defined(WIN32) && !defined(WIN64) && !defined(_MSC_VER)
 #include <SDL/SDL.h>
 #include <SDL/SDL_opengl.h>
