@@ -32,7 +32,7 @@ VertBuffer cDraw::makeBoxMesh()
             1,1,0, 1,1,1, 1,0,1
         };
     
-    glBufferData( tmp.verts, sizeof(float)*3*6*6, &cube, GL_STATIC_READ);
+    glBufferData( tmp.verts, sizeof(float)*3*6*6, &cube, GL_STATIC_DRAW);
     tmp.numv = NUM_POINTS;
     
     return tmp;
