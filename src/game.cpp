@@ -1,6 +1,4 @@
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
-
+#include "port.h"
 #include "game.h"
 #include "player.h"
 

@@ -1,7 +1,4 @@
-#include <SDL/SDL.h>
-#include <SDL/SDL_opengl.h>
-#include <GL/gl.h>
-
+#include "port.h"
 #include "init.h"
 
 int init(void)
