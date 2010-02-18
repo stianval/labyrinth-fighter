@@ -5,8 +5,7 @@ void Player::setCamera()
 {
     glMatrixMode(GL_MODELVIEW);
     
-    gluLookAt(x,y,z, x+10.0, y, z, x, y+10, z);
-    
+    gluLookAt(x,y,z, x+10.0, y, z, x+10, y+10, z);
 }
 
 void Player::process()
