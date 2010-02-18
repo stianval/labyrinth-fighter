@@ -20,9 +20,15 @@ int game(void)
 		pl.process();
 		pl.setCamera();
 		
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		
+		static GLfloat rquad;
+		
 	  	/* Move Right 3 Units */
 		glLoadIdentity( );
 		glTranslatef( 0.0f, 0.0f, -6.0f );
+		
+		glRotatef(rquad,1.0f,1.0f,1.0f);
 
 		glBegin( GL_QUADS );                 /* Draw A Quad                      */
 		  glColor3f(   0.0f,  1.0f,  0.0f ); /* Set The Color To Green           */
@@ -61,6 +67,8 @@ int game(void)
 		  glVertex3f(  1.0f, -1.0f,  1.0f ); /* Bottom Left Of The Quad (Right)  */
 		  glVertex3f(  1.0f, -1.0f, -1.0f ); /* Bottom Right Of The Quad (Right) */
 		glEnd( );                            /* Done Drawing The Quad            */
+
+		rquad-=0.15f;
 
 		/* Draw it to the screen */
 		SDL_GL_SwapBuffers( );
