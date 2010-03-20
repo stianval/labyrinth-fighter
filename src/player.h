@@ -3,10 +3,7 @@
 
 class Player {
     public:
-        Player() {
-            x=y=z=0.0;
-            vx=vy=vz=0.0;
-        }
+        Player();
         
         ~Player() {
         }
@@ -16,6 +13,9 @@ class Player {
         
     private:
         double x,y,z;
+        // current rotation
+        // 
+        double rot[9]; 
         double vx,vy,vz;
 };
 
