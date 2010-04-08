@@ -31,7 +31,7 @@ int game(void)
 		Draw.rotate(m, 0.0,0.0,1.0);
 		// Try to center the cube for rotation
 		Draw.movePosition(-0.5,-0.5,-0.5);
-		k+=0.1; l+=0.01; m+=0.001;
+		//k+=0.1; l+=0.01; m+=0.001;
 		Draw.render(mybox);
 		
 		Draw.movePosition(-2,+1,-4);		Draw.render(mybox);
