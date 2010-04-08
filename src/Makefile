@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -lSDL -lGL -lGLU -lSDLmain
-LDFLAGS = -"-framework Cocoa"
+LDFLAGS =
 SOURCES = *.cpp
 HEADERS = *.h
 
