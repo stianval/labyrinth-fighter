@@ -27,12 +27,15 @@ int game(void)
 					{
 						bool state = event.key.state;
 						switch( event.key.keysym.sym ) {
-							case SDLK_w: pl.k_up = state;	break;
-							case SDLK_s: pl.k_down = state;	break;
-							case SDLK_a: pl.k_left = state;	break;
-							case SDLK_d: pl.k_right = state;break;
-							case SDLK_SPACE: pl.k_forth = state; break;
-							case SDLK_b: pl.k_break = state; break;
+							case SDLK_UP: pl.k_up = state;	break;
+							case SDLK_DOWN: pl.k_down = state;	break;
+							case SDLK_LEFT: pl.k_left = state;	break;
+							case SDLK_RIGHT: pl.k_right = state;break;
+							case SDLK_w: pl.k_forth = state; break;
+							case SDLK_s: pl.k_break = state; break;
+							case SDLK_a: pl.k_tleft = state; break;
+							case SDLK_d: pl.k_tright = state; break;
+
 						}
 					}
 					break;
