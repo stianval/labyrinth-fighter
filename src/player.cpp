@@ -36,9 +36,9 @@ void Player::process()
 	dyaw *= 0.95;
 	dpitch *= 0.95;
 	droll *= 0.95;
-	vx += double(k_forth)*rot.getIndex(0,0)*0.05;
-	vy += double(k_forth)*rot.getIndex(1,0)*0.05;
-	vz += double(k_forth)*rot.getIndex(2,0)*0.05;
+	vx += double(k_forth)*rot.getIndex(0,0)*0.005;
+	vy += double(k_forth)*rot.getIndex(1,0)*0.005;
+	vz += double(k_forth)*rot.getIndex(2,0)*0.005;
 	
 	if(k_break)
 		vx=vy=vz=0.0;

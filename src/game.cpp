@@ -3,6 +3,9 @@
 #include "game.h"
 #include "player.h"
 #include "draw.h"
+#include "cube.h"
+
+Cube maze[MAP_SIZE] = {1,0,1,0,1,0,1,1,1,1};
 
 int game(void)
 {
@@ -36,6 +39,7 @@ int game(void)
 							case SDLK_a: pl.k_tleft = state; break;
 							case SDLK_d: pl.k_tright = state; break;
 
+							case SDLK_ESCAPE: quit=true; break;
 						}
 					}
 					break;
@@ -56,7 +60,7 @@ int game(void)
 			// Try to center the cube for rotation
 			Draw.movePosition(-0.5,-0.5,-0.5);
 			//k+=0.1; l+=0.01; m+=0.001;
-			Draw.render(mybox);
+			//Draw.render(mybox);
 			
 			Draw.movePosition(-2,+1,-4);		Draw.render(mybox);
 			Draw.movePosition(+4,-2,+8);		Draw.render(mybox);
@@ -67,11 +71,20 @@ int game(void)
 			Draw.movePosition(-6,-6,0);		Draw.render(mybox);
 			
 			Draw.resetCursor();
-			Draw.scale(2,2,2);
-			for(int i=0;i<1001;i++) {
-				Draw.movePosition(sin(i*0.01),cos(i*0.01),1.5);
-				Draw.scale(1.0+0.5*sin(i*0.05),1.0+0.5*cos(i*0.05),1.0+0.5*sin(i*0.05));
-				Draw.render(mybox);
+			Draw.scale(1000,1000,1000);
+			for(int i=0,z=0;z<MAX_Z;z++){
+				for(int y=0;y<MAX_Y;y++){
+					for(int x=0;x<MAX_X;x++) {
+						if (maze[i++].x){
+							Draw.resetCursor();
+							Draw.movePosition(x,y,z);
+							//Draw.movePosition(sin(i*0.01),cos(i*0.01),1.5);
+							//Draw.scale(1.0+0.5*sin(i*0.05),1.0+0.5*cos(i*0.05),1.0+0.5*sin(i*0.05));
+							Draw.render(mybox);
+						}
+						
+					}
+				}
 			}
 			
 			Draw.resetCursor();
