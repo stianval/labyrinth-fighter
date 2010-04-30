@@ -7,7 +7,7 @@ Player::Player() {
 	x=y=z=0.0;
 	vx=vy=vz=0.0;
 	droll=dpitch=dyaw=0.0;
-	k_up=k_down=k_left=k_right=k_forth=k_break=k_tleft=k_tright=false;
+	k_up=k_down=k_left=k_right=k_forth=k_brake=k_tleft=k_tright=k_brakedebug=false;
 	rot.roll(-0.5);
 }
 
@@ -40,9 +40,13 @@ void Player::process()
 	vy += double(k_forth)*rot.getIndex(1,0)*0.005;
 	vz += double(k_forth)*rot.getIndex(2,0)*0.005;
 	
-	if(k_break)
+	if(k_brakedebug)
 		vx=vy=vz=0.0;
-	
+	if(k_brake) {
+		vx*=0.95;
+		vy*=0.95;
+		vz*=0.95;
+	}
 	x+=vx;
 	y+=vy;
 	z+=vz;

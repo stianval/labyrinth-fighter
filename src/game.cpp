@@ -35,9 +35,10 @@ int game(void)
 							case SDLK_LEFT: pl.k_left = state;	break;
 							case SDLK_RIGHT: pl.k_right = state;break;
 							case SDLK_w: pl.k_forth = state; break;
-							case SDLK_s: pl.k_break = state; break;
+							case SDLK_b: pl.k_brakedebug = state; break;
 							case SDLK_a: pl.k_tleft = state; break;
 							case SDLK_d: pl.k_tright = state; break;
+							case SDLK_s: pl.k_brake = state; break;
 
 							case SDLK_ESCAPE: quit=true; break;
 						}

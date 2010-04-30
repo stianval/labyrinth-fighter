@@ -12,7 +12,7 @@ class Player {
         void setCamera();
         void process();
         
-		bool k_up, k_down, k_left, k_right, k_forth, k_break, k_fire, k_tleft, k_tright;
+		bool k_up, k_down, k_left, k_right, k_forth, k_brake, k_fire, k_tleft, k_tright, k_brakedebug;
     private:
         double x,y,z,vx,vy,vz,droll, dpitch, dyaw;
 		
