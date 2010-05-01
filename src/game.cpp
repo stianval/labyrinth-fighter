@@ -5,7 +5,7 @@
 #include "draw.h"
 #include "cube.h"
 
-Cube maze[MAP_SIZE] = {1,0,1,0,1,0,1,1,1,1};
+Cube maze[MAP_SIZE];
 
 int game(void)
 {
@@ -30,17 +30,29 @@ int game(void)
 					{
 						bool state = event.key.state;
 						switch( event.key.keysym.sym ) {
+                            /*
 							case SDLK_UP: pl.k_up = state;	break;
 							case SDLK_DOWN: pl.k_down = state;	break;
 							case SDLK_LEFT: pl.k_left = state;	break;
 							case SDLK_RIGHT: pl.k_right = state;break;
 							case SDLK_w: pl.k_forth = state; break;
-							case SDLK_b: pl.k_brakedebug = state; break;
+                            case SDLK_b: pl.k_brakedebug = state; break;
+                            case SDLK_s: pl.k_brake = state; break;
 							case SDLK_a: pl.k_tleft = state; break;
 							case SDLK_d: pl.k_tright = state; break;
-							case SDLK_s: pl.k_brake = state; break;
+                            */
 
-							case SDLK_ESCAPE: quit=true; break;
+                            case SDLK_UP:    set_state(&pl.keystate, K_UP, state); break;
+							case SDLK_DOWN:  set_state(&pl.keystate, K_DOWN, state); break;
+							case SDLK_LEFT:  set_state(&pl.keystate, K_LEFT, state); break;
+							case SDLK_RIGHT: set_state(&pl.keystate, K_RIGHT, state); break;
+							case SDLK_w:     set_state(&pl.keystate, K_FORTH, state); break;
+                            case SDLK_b:     set_state(&pl.keystate, K_BRAKEDEBUG, state); break;
+                            case SDLK_s:     set_state(&pl.keystate, K_BRAKE, state); break;
+							case SDLK_a:     set_state(&pl.keystate, K_TLEFT, state); break;
+							case SDLK_d:     set_state(&pl.keystate, K_TRIGHT, state); break;
+
+                            case SDLK_ESCAPE:   quit=true; break;
 						}
 					}
 					break;
@@ -53,6 +65,7 @@ int game(void)
 			pl.process();
 			pl.setCamera();
 			
+            /*
 			Draw.resetCursor();
 			Draw.movePosition(0,0, -6);
 			Draw.rotate(k, 0.0,1.0,0.0);
@@ -70,29 +83,34 @@ int game(void)
 			Draw.scale(0.5,0.5,0.5);
 			Draw.movePosition(3,3,0);		Draw.render(mybox);
 			Draw.movePosition(-6,-6,0);		Draw.render(mybox);
-			
+		
 			Draw.resetCursor();
-			Draw.scale(1000,1000,1000);
-			for(int i=0,z=0;z<MAX_Z;z++){
+			Draw.scale(10000,10000,10000);
+		    */
+            for(int i=0,z=0;z<MAX_Z;z++){
 				for(int y=0;y<MAX_Y;y++){
 					for(int x=0;x<MAX_X;x++) {
 						if (maze[i++].x){
 							Draw.resetCursor();
+                            Draw.scale(100,100,100);
 							Draw.movePosition(x,y,z);
 							//Draw.movePosition(sin(i*0.01),cos(i*0.01),1.5);
 							//Draw.scale(1.0+0.5*sin(i*0.05),1.0+0.5*cos(i*0.05),1.0+0.5*sin(i*0.05));
 							Draw.render(mybox);
-						}
-						
+						}			
 					}
 				}
 			}
-			
+
+            /*
+
 			Draw.resetCursor();
 			//glDisable( GL_DEPTH_TEST);
 			Draw.movePosition(-500,-500,-500);
 			Draw.scale(1000,1000,1000);		Draw.render(mybox);
 			
+            */
+
 			/* Draw it to the screen */
 			SDL_GL_SwapBuffers( );
 			glClearColor( k/1000.0,l/1000.0,m/1000.0, 0.0f );
