@@ -3,9 +3,10 @@
 
 class Maze maze;
 
-void Maze::init(int depth)
+void Maze::init(int depth, double w_size)
 {
 	this->depth = depth;
+	this->w_size = w_size;
 	
 	box = Draw.makeBoxMesh();
 	
@@ -21,6 +22,17 @@ void Maze::init(int depth)
 			} // for(z)
 		} // for(y)
 	} // for(x)
+}
+
+bool Maze::checkPointInBox(double x, double y, double z)
+{	int ix = getIndex(x);
+	int iy = getIndex(y);
+	int iz = getIndex(z);
+	if(ix<0 || ix>=depth) return false;
+	if(iy<0 || iy>=depth) return false;
+	if(iz<0 || iz>=depth) return false;
+	
+	return isWall(ix,iy,iz);
 }
 
 void Maze::draw()
