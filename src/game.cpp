@@ -25,6 +25,7 @@ int game(void)
 				case SDL_KEYUP:
 					{
 						bool state = event.key.state;
+						pl.procState(event.key.keysym.sym, state);
 						switch( event.key.keysym.sym ) {
                             /*
 							case SDLK_UP: pl.k_up = state;	break;
@@ -37,7 +38,7 @@ int game(void)
 							case SDLK_a: pl.k_tleft = state; break;
 							case SDLK_d: pl.k_tright = state; break;
                             */
-
+							/*
                             case SDLK_UP:    set_state(&pl.keystate, K_UP, state); break;
 							case SDLK_DOWN:  set_state(&pl.keystate, K_DOWN, state); break;
 							case SDLK_LEFT:  set_state(&pl.keystate, K_LEFT, state); break;
@@ -46,8 +47,8 @@ int game(void)
                             case SDLK_b:     set_state(&pl.keystate, K_BRAKEDEBUG, state); break;
                             case SDLK_s:     set_state(&pl.keystate, K_BRAKE, state); break;
 							case SDLK_a:     set_state(&pl.keystate, K_TLEFT, state); break;
-							case SDLK_d:     set_state(&pl.keystate, K_TRIGHT, state); break;
-
+							case SDLK_d:     set_state(&pl.keystate, K_TRIGHT, state); break;|
+							*/
                             case SDLK_ESCAPE:   quit=true; break;
 						}
 					}

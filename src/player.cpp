@@ -4,7 +4,7 @@
 #include <cstring>
 
 #define ROT_ADJ 0.002
-#define VEL_ADJ 0.005
+#define VEL_ADJ 0.050
 
 Player::Player() {
 	x=y=z=0.0;
@@ -82,3 +82,31 @@ void Player::process()
 	y+=vy;
 	z+=vz;
 }
+void Player::procState(int key, bool state) {
+	switch( key) {
+		/*
+		   case SDLK_UP: pl.k_up = state;	break;
+		   case SDLK_DOWN: pl.k_down = state;	break;
+		   case SDLK_LEFT: pl.k_left = state;	break;
+		   case SDLK_RIGHT: pl.k_right = state;break;
+		   case SDLK_w: pl.k_forth = state; break;
+		   case SDLK_b: pl.k_brakedebug = state; break;
+		   case SDLK_s: pl.k_brake = state; break;
+		   case SDLK_a: pl.k_tleft = state; break;
+		   case SDLK_d: pl.k_tright = state; break;
+		 */
+
+		case SDLK_UP:    set_state(&keystate, K_UP, state); break;
+		case SDLK_DOWN:  set_state(&keystate, K_DOWN, state); break;
+		case SDLK_LEFT:  set_state(&keystate, K_LEFT, state); break;
+		case SDLK_RIGHT: set_state(&keystate, K_RIGHT, state); break;
+		case SDLK_w:     set_state(&keystate, K_FORTH, state); break;
+		case SDLK_b:     set_state(&keystate, K_BRAKEDEBUG, state); break;
+		case SDLK_s:     set_state(&keystate, K_BRAKE, state); break;
+		case SDLK_a:     set_state(&keystate, K_TLEFT, state); break;
+		case SDLK_d:     set_state(&keystate, K_TRIGHT, state); break;
+
+		
+	}
+}
+
