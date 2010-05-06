@@ -11,7 +11,6 @@ int game(void)
 	int prev,cur;
 	bool quit = false;
 	SDL_Event event;
-	Player pl;
 	
 	prev = SDL_GetTicks();
 	while(!quit) {
@@ -25,7 +24,7 @@ int game(void)
 				case SDL_KEYUP:
 					{
 						bool state = event.key.state;
-						pl.procState(event.key.keysym.sym, state);
+						player.procState(event.key.keysym.sym, state);
 						switch( event.key.keysym.sym ) {
                             /*
 							case SDLK_UP: pl.k_up = state;	break;
@@ -59,8 +58,8 @@ int game(void)
 		if(SDL_GetTicks() > prev+(1000/60)) {
 			prev = SDL_GetTicks();
 			
-			pl.process();
-			pl.setCamera();
+			player.process();
+			player.setCamera();
 			
             /*
 			Draw.resetCursor();

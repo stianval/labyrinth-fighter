@@ -6,6 +6,8 @@
 #define ROT_ADJ 0.002
 #define VEL_ADJ 0.050
 
+class Player player;
+
 Player::Player() {
 	x=y=z=0.0;
 	vx=vy=vz=0.0;

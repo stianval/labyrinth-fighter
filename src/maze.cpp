@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "maze.h"
+#include "player.h"
 
 class Maze maze;
 
@@ -35,11 +36,30 @@ bool Maze::checkPointInBox(double x, double y, double z)
 	return isWall(ix,iy,iz);
 }
 
+#define DRAW_SIZE 16
 void Maze::draw()
 {
-	for(int z=0;z<depth;z++){
-		for(int y=0;y<depth;y++){
-			for(int x=0;x<depth;x++) {
+	int cx,cy,cz;
+	
+	cx = getIndex(player.x);
+	cy = getIndex(player.y);
+	cz = getIndex(player.z);
+	
+	int min_x,max_x;
+	int min_y,max_y;
+	int min_z,max_z;
+	min_x = (cx-DRAW_SIZE)<0		? 0			: cx-DRAW_SIZE;
+	max_x = (cx+DRAW_SIZE)>=depth	? depth-1	: cx+DRAW_SIZE;
+	
+	min_y = (cy-DRAW_SIZE)<0		? 0			: cy-DRAW_SIZE;
+	max_y = (cy+DRAW_SIZE)>=depth	? depth-1	: cy+DRAW_SIZE;
+	
+	min_z = (cz-DRAW_SIZE)<0		? 0			: cz-DRAW_SIZE;
+	max_z = (cz+DRAW_SIZE)>=depth	? depth-1	: cz+DRAW_SIZE;
+	
+	for(int z=min_z;z<=max_z;z++){
+		for(int y=min_y;y<=max_y;y++){
+			for(int x=min_x;x<=max_x;x++){
 				if (cube[x][y][z].x){
 					Draw.resetCursor();
 					Draw.scale(100,100,100);
