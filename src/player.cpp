@@ -26,6 +26,18 @@ void Player::setCamera()
     gluLookAt(x,y,z,
 			x+rot.getIndex(0,0), y+rot.getIndex(1,0), z+rot.getIndex(2,0),
 			rot.getIndex(0,1), rot.getIndex(1,1), rot.getIndex(2,1));
+
+	glEnable(GL_FOG);
+	float col[] = {1,1,1};
+	float pos[3];
+		pos[0] = x;
+		pos[1] = y;
+		pos[2] = z;
+	glFogi(GL_FOG_COORD_SRC, GL_FOG_COORD);
+	glFogfv(GL_FOG_COLOR,col);
+	glFogi(GL_FOG_MODE, GL_LINEAR);
+	glFogf(GL_FOG_START, 100.0*10);
+	glFogf(GL_FOG_END, 100.0*16);
 }
 
 void Player::process()
