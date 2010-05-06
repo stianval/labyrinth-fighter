@@ -13,7 +13,7 @@ class Maze {
 		
 		bool checkPointInBox(double x, double y, double z);
 		bool isWall(int x,int y,int z) { return cube[x][y][z].x; }
-		int getIndex(double x) { return int(x/(w_size*double(depth))); }
+		int getIndex(double x) { return int(x/w_size); }
 	private:
 		Cube ***cube;
 		int depth;
