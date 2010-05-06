@@ -99,7 +99,6 @@ void Player::process()
 	y+=vy;
 	z+=vz;
 	if (maze.checkPointInBox(x,y,z)) {
-
 		if (maze.getIndex(oz)-maze.getIndex(z) != 0) {
 			z = oz;
 			vz *= -1;
@@ -108,7 +107,7 @@ void Player::process()
 			y = oy;
 			vy *= -1;
 		}
-		if (maze.getIndex(ox)<maze.getIndex(x) != 0) {
+		if (maze.getIndex(ox)-maze.getIndex(x) != 0) {
 			x = ox;
 			vx *= -1;
 		}
