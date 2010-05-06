@@ -19,7 +19,7 @@ void Maze::init(int depth, double w_size)
 			cube[ix][iy] = new Cube[depth];
 			
 			for(int iz=0; iz<depth; iz++) {
-				cube[ix][iy][iz].x = rand() & 1;
+				cube[ix][iy][iz].x = rand() & 2;
 			} // for(z)
 		} // for(y)
 	} // for(x)

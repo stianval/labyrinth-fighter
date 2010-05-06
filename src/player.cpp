@@ -1,6 +1,7 @@
 #include "port.h"
 #include "player.h"
 #include "debug.h"
+#include "maze.h"
 #include <cstring>
 
 #define ROT_ADJ 0.002
@@ -95,6 +96,12 @@ void Player::process()
 	x+=vx;
 	y+=vy;
 	z+=vz;
+	if (maze.checkPointInBox(x,y,z)) {
+		z-= 0.1;
+		vx = -vx;
+		vy = -vy;
+		vz = -vz;
+	}
 }
 void Player::procState(int key, bool state) {
 	switch( key) {
