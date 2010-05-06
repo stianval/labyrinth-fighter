@@ -92,15 +92,26 @@ void Player::process()
 		vy*=0.95;
 		vz*=0.95;
     }
-
+	ox = x;
+	oy = y;
+	oz = z;
 	x+=vx;
 	y+=vy;
 	z+=vz;
 	if (maze.checkPointInBox(x,y,z)) {
-		z-= 0.1;
-		vx = -vx;
-		vy = -vy;
-		vz = -vz;
+
+		if (maze.getIndex(oz)-maze.getIndex(z) != 0) {
+			z = oz;
+			vz *= -1;
+		}
+		if (maze.getIndex(oy)-maze.getIndex(y) != 0) {
+			y = oy;
+			vy *= -1;
+		}
+		if (maze.getIndex(ox)<maze.getIndex(x) != 0) {
+			x = ox;
+			vx *= -1;
+		}
 	}
 }
 void Player::procState(int key, bool state) {

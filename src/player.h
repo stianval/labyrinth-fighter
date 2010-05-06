@@ -19,7 +19,7 @@ class Player {
         void process();
         void procState(int key, bool state);
         int keystate;
-        double x,y,z,vx,vy,vz,droll, dpitch, dyaw;
+        double x,y,z,vx,vy,vz,droll, dpitch, dyaw,ox, oy, oz;
 		
 	private:
 		RotMatrix rot;
