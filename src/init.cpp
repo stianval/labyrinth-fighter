@@ -2,9 +2,7 @@
 #include <ctime>
 #include "port.h"
 #include "init.h"
-#include "cube.h"
-
-extern Cube maze[MAP_SIZE];
+#include "maze.h"
 
 int init(void)
 {
@@ -33,9 +31,7 @@ int init(void)
     /* Really Nice Perspective Calculations */
     glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
 	
-	for (int i=0; i<MAP_SIZE;i++){
-		maze[i].x = rand() & 1;
-	}
+	maze.init(32);
 
 	return 0;
 }

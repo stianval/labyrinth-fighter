@@ -3,9 +3,7 @@
 #include "game.h"
 #include "player.h"
 #include "draw.h"
-#include "cube.h"
-
-Cube maze[MAP_SIZE];
+#include "maze.h"
 
 int game(void)
 {
@@ -14,8 +12,6 @@ int game(void)
 	bool quit = false;
 	SDL_Event event;
 	Player pl;
-	
-	VertBuffer mybox =  Draw.makeBoxMesh();
 	
 	prev = SDL_GetTicks();
 	while(!quit) {
@@ -86,21 +82,7 @@ int game(void)
 		
 			Draw.resetCursor();
 			Draw.scale(10000,10000,10000);
-		    */
-            for(int i=0,z=0;z<MAX_Z;z++){
-				for(int y=0;y<MAX_Y;y++){
-					for(int x=0;x<MAX_X;x++) {
-						if (maze[i++].x){
-							Draw.resetCursor();
-                            Draw.scale(100,100,100);
-							Draw.movePosition(x,y,z);
-							//Draw.movePosition(sin(i*0.01),cos(i*0.01),1.5);
-							//Draw.scale(1.0+0.5*sin(i*0.05),1.0+0.5*cos(i*0.05),1.0+0.5*sin(i*0.05));
-							Draw.render(mybox);
-						}			
-					}
-				}
-			}
+
 
             /*
 
@@ -110,6 +92,8 @@ int game(void)
 			Draw.scale(1000,1000,1000);		Draw.render(mybox);
 			
             */
+			
+			maze.draw();
 
 			/* Draw it to the screen */
 			SDL_GL_SwapBuffers( );
