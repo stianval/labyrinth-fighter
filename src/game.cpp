@@ -4,6 +4,7 @@
 #include "player.h"
 #include "draw.h"
 #include "maze.h"
+#include "utilities.h"
 
 int game(void)
 {
@@ -94,7 +95,7 @@ int game(void)
             */
 			
 			maze.draw();
-
+			drawtext(0, 0, 0, "test");
 			/* Draw it to the screen */
 			SDL_GL_SwapBuffers( );
 			glClearColor( k/1000.0,l/1000.0,m/1000.0, 0.0f );

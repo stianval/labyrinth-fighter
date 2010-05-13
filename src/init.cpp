@@ -3,6 +3,7 @@
 #include "port.h"
 #include "init.h"
 #include "maze.h"
+#include "utilities.h"
 #include "SDL_TTF.h"
 
 int init(void)
@@ -38,6 +39,5 @@ int init(void)
     glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
 	
 	maze.init(257);
-
 	return 0;
 }

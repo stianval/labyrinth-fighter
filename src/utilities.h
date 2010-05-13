@@ -1,6 +1,8 @@
+#ifndef UTILITIES_H
+#define UTILITIES_H
+
 #include "port.h"
-class Utilities {
-	enum textquality {solid, shaded, blended};
-	SDL_Surface *drawtext(TTF_Font *fonttodraw, char fgR, char fgG, char fgB, char fgA, 
-char bgR, char bgG, char bgB, char bgA, char text[], textquality quality);
-}
+
+void drawtext(int x, int y, int color, char text[]);
+TTF_Font* loadfont(char* file, int ptsize);
+#endin
