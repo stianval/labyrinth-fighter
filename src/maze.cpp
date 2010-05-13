@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include "maze.h"
 #include "player.h"
-
+#define DRAW_SIZE 8
 class Maze maze;
 
 void Maze::init(int depth, double w_size)
@@ -37,7 +37,7 @@ bool Maze::checkPointInBox(double x, double y, double z)
 	return isWall(ix,iy,iz);
 }
 
-#define DRAW_SIZE 16
+
 void Maze::draw()
 {
 	int cx,cy,cz;
