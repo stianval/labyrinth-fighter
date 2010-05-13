@@ -2,6 +2,8 @@
 #define MAZE_H
 #include "draw.h"
 
+#define MAZE_SIZE 257
+ 
 class Maze {
 	struct Cube {
 		int x;
