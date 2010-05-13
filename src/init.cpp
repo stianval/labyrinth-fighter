@@ -4,7 +4,6 @@
 #include "init.h"
 #include "maze.h"
 #include "utilities.h"
-#include "SDL_TTF.h"
 
 int init(void)
 {
