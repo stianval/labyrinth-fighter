@@ -3,6 +3,7 @@
 #include "port.h"
 #include "init.h"
 #include "maze.h"
+#include "SDL_TTF.h"
 
 int init(void)
 {
@@ -11,8 +12,13 @@ int init(void)
 	
 	SDL_SetVideoMode(1024,768, 0, SDL_OPENGL);
 	
-	SDL_WM_SetCaption( "Labyrinth Fighter /o/", NULL );
-	
+	SDL_WM_SetCaption( "Labyrinth Fighter /o/ \\o\\ \\o/ ", NULL );
+	TTF_Init();
+	TTF_Font *fntDeja = TTF_OpenFont( "DejaVuSerif.ttf", 12 );
+	if (fntDeja == NULL) {
+		exit(1);
+	}
+	TTF_CloseFont( fntDeja );
 	glClearColor( 1,0,0,0);
 	
 	glMatrixMode( GL_PROJECTION );
