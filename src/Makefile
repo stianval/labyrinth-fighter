@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -lSDL -lGL -lGLU -lSDLmain -O3
+CFLAGS = -lSDL -lGL -lGLU -lSDLmain -lSDL_ttf -O3
 LDFLAGS =
 SOURCES = *.cpp
 HEADERS = *.h
