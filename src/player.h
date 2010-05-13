@@ -21,7 +21,6 @@ class Player {
         int keystate;
         double x,y,z,vx,vy,vz,droll, dpitch, dyaw,ox, oy, oz;
 		
-	private:
 		RotMatrix rot;
 };
 

@@ -92,7 +92,7 @@ int game(void)
 			Draw.scale(1000,1000,1000);		Draw.render(mybox);
 			
             */
-			maze.process();
+			
 			maze.draw();
 
 			/* Draw it to the screen */
