@@ -31,7 +31,7 @@ int init(void)
     /* Really Nice Perspective Calculations */
     glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
 	
-	maze.init(257);
+	maze.init(64);
 
 	return 0;
 }

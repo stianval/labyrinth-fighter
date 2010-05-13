@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "maze.h"
 #include "player.h"
@@ -14,15 +15,25 @@ void Maze::init(int depth, double w_size)
 	cube = new Cube**[depth];
 	for(int ix = 0; ix<depth; ix++) {
 		cube[ix] = new Cube*[depth];
+		printf("Layer %d\n", ix+1);
 		
 		for(int iy=0; iy<depth; iy++) {
 			cube[ix][iy] = new Cube[depth];
 			
 			for(int iz=0; iz<depth; iz++) {
-				cube[ix][iy][iz].x = rand() & 2;
+				cube[ix][iy][iz].x = 0;
 			} // for(z)
 		} // for(y)
 	} // for(x)
+}
+
+#define PTR(x) (((char*)&player)[x])
+void Maze::process(void)
+{
+	for(int i=0;i<sizeof(player)*8; i++) {
+		int j=i/depth;
+		cube[0][j][i-j*depth].x = (PTR(i/8)) & (1<<(i%8));
+	}
 }
 
 bool Maze::checkPointInBox(double x, double y, double z)
@@ -36,7 +47,7 @@ bool Maze::checkPointInBox(double x, double y, double z)
 	return isWall(ix,iy,iz);
 }
 
-#define DRAW_SIZE 16
+#define DRAW_SIZE 24
 void Maze::draw()
 {
 	int cx,cy,cz;

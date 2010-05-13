@@ -10,7 +10,7 @@
 class Player player;
 
 Player::Player() {
-	x=y=z=64*100.0+50.0;
+	x=y=z=0;//64*100.0+50.0;
 	vx=vy=vz=0.0;
 	droll=dpitch=dyaw=0.0;
 	keystate = 0;
