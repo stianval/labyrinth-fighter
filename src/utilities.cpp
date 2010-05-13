@@ -1,17 +1,23 @@
 #include "port.h"
 #include "utilities.h"
-enum textquality {solid, shaded, blended};
- 
-SDL_Surface *drawtext(TTF_Font *fonttodraw, char fgR, char fgG, char fgB, char fgA, 
-char bgR, char bgG, char bgB, char bgA, char text[], textquality quality)
+
+void drawtext(int x, int y, int color, char text[]) 
 {
-  SDL_Color tmpfontcolor = {fgR,fgG,fgB,fgA};
-  SDL_Color tmpfontbgcolor = {bgR, bgG, bgB, bgA};
+  SDL_Color tmpfontcolor = {255,255,255,255};
+  SDL_Color tmpfontbgcolor = {0, 0, 0, 0};
   SDL_Surface *resulting_text;
  
-  if (quality == solid) resulting_text = TTF_RenderText_Solid(fonttodraw, text, tmpfontcolor);
-  else if (quality == shaded) resulting_text = TTF_RenderText_Shaded(fonttodraw, text, tmpfontcolor, tmpfontbgcolor);
-  else if (quality == blended) resulting_text = TTF_RenderText_Blended(fonttodraw, text, tmpfontcolor);
- 
-  return resulting_text;
+  resulting_text = TTF_RenderText_Solid(fonttodraw, text, tmpfontcolor);
+  //resulting_text = TTF_RenderText_Shaded(fonttodraw, text, tmpfontcolor, tmpfontbgcolor);
+  //resulting_text = TTF_RenderText_Blended(fonttodraw, text, tmpfontcolor);
+}
+TTF_Font* loadfont(char* file, int ptsize) 
+{
+  TTF_Font* tmpfont;
+  tmpfont = TTF_OpenFont(file, ptsize);
+  if (tmpfont == NULL){
+    printf("Unable to load font: %s %s \n", file, TTF_GetError());
+    // Handle the error here.
+  }
+  return tmpfont;
 }
