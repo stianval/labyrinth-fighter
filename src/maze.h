@@ -9,7 +9,6 @@ class Maze {
 	
 	public:
 		void init(int depth, double w_size=100.0);
-		void process();
 		void draw();
 		
 		bool checkPointInBox(double x, double y, double z);
