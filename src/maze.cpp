@@ -22,7 +22,7 @@ void Maze::init(int depth, double w_size)
 				cube[ix][iy][iz].x = rand() & 2;
 			} // for(z)
 		} // for(y)
-		printf("Creating layer %d/%d (%.2f%%)\n", ix+1, depth, float(ix+1)/float(depth)*100.0);
+		// printf("Creating layer %d/%d (%.2f%%)\n", ix+1, depth, float(ix+1)/float(depth)*100.0);
 	} // for(x)
 }
 

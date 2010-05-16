@@ -30,6 +30,8 @@ int init(void)
     glShadeModel( GL_SMOOTH );
 
 	glEnable(GL_DEPTH_TEST);
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
     /* Set the background black */
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
@@ -43,5 +45,7 @@ int init(void)
 }
 
 void cleanup(){
-	
+	TTF_CloseFont(fontToDraw);
+    TTF_Quit();
+    SDL_Quit();
 }
