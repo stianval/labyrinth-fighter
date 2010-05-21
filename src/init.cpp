@@ -16,8 +16,8 @@ int init(void)
 	SDL_WM_SetCaption( "Labyrinth Fighter /o/ \\o\\ \\o/ ", NULL );
 	
 	// Prepare font
-	TTF_Init();
-	fontToDraw = TTF_OpenFont( "DejaVuSerif.ttf", 12 );
+	//TTF_Init();
+	//fontToDraw = TTF_OpenFont( "DejaVuSerif.ttf", 12 );
 	glClearColor( 1,0,0,0);
 	
 	// Initialize OpenGL
@@ -45,7 +45,7 @@ int init(void)
 }
 
 void cleanup(){
-	TTF_CloseFont(fontToDraw);
-    TTF_Quit();
+	//TTF_CloseFont(fontToDraw);
+    //TTF_Quit();
     SDL_Quit();
 }

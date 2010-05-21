@@ -45,11 +45,11 @@ void drawtext(int x, int y, int color, char text[])
 }
 TTF_Font* loadfont(char* file, int ptsize) 
 {
-  TTF_Font* tmpfont;
+  /*TTF_Font* tmpfont;
   tmpfont = TTF_OpenFont(file, ptsize);
   if (tmpfont == NULL){
     printf("Unable to load font: %s %s \n", file, TTF_GetError());
     // Handle the error here.
   }
-  return tmpfont;
+  return tmpfont;*/
 }
