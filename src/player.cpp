@@ -6,7 +6,7 @@
 
 #define ROT_ADJ 0.002
 #define VEL_ADJ 0.050
-
+#define BOUNCE 0.4
 class Player player;
 
 Player::Player() {
@@ -102,15 +102,21 @@ void Player::process()
 	if (maze.checkPointInBox(x,y,z)) {
 		if (maze.getIndex(oz)-maze.getIndex(z) != 0) {
 			z = oz;
-			vz *= -1;
+			vz *= -BOUNCE;
+			vy *= BOUNCE;
+			vz *= BOUNCE;
 		}
 		if (maze.getIndex(oy)-maze.getIndex(y) != 0) {
 			y = oy;
-			vy *= -1;
+			vy *= -BOUNCE;
+			vx *= BOUNCE;
+			vz *= BOUNCE;
 		}
 		if (maze.getIndex(ox)-maze.getIndex(x) != 0) {
 			x = ox;
-			vx *= -1;
+			vx *= -BOUNCE;
+			vy *= BOUNCE;
+			vz *= BOUNCE;
 		}
 	}
 }
