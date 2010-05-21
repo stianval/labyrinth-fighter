@@ -1,15 +1,11 @@
-#include <cstdlib>
-#include <ctime>
 #include "port.h"
 #include "init.h"
 #include "maze.h"
 #include "utilities.h"
+#include "debug.h"
 
 int init(void)
 {
-	// Seed timer
-	srand(time(NULL));
-
 	// Initialize SDL stuff
 	SDL_Init(SDL_INIT_EVERYTHING);
 	SDL_SetVideoMode(1024,768, 0, SDL_OPENGL);
@@ -41,6 +37,10 @@ int init(void)
 	
 	// Build the maze
 	maze.init(MAZE_SIZE);
+
+    // Initialize os specific stuff. Must be called after some other stuff here in init, so do not move.
+    os_init();
+
 	return 0;
 }
 
