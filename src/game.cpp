@@ -5,6 +5,7 @@
 #include "draw.h"
 #include "maze.h"
 #include "utilities.h"
+#include "debug.h"
 
 int game(void)
 {
@@ -13,6 +14,8 @@ int game(void)
 	bool quit = false;
 	SDL_Event event;
 	
+    PRINTV(glGetString(GL_VERSION));
+
 	prev = SDL_GetTicks();
 	while(!quit) {
 		while( SDL_PollEvent( &event ) ) {

@@ -1,4 +1,4 @@
-#include <stdlib.h>
+#include "os_specific.h"
 #include "maze.h"
 #include "player.h"
 #define DRAW_SIZE 8
@@ -19,7 +19,7 @@ void Maze::init(int depth, double w_size)
 			cube[ix][iy] = new Cube[depth];
 			
 			for(int iz=0; iz<depth; iz++) {
-				cube[ix][iy][iz].x = rand() & 2;
+				cube[ix][iy][iz].x = random() & 2;
 			} // for(z)
 		} // for(y)
 		// printf("Creating layer %d/%d (%.2f%%)\n", ix+1, depth, float(ix+1)/float(depth)*100.0);

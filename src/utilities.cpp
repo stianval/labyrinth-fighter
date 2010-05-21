@@ -1,6 +1,7 @@
 #include "port.h"
 #include "utilities.h"
 #include "debug.h"
+
 TTF_Font *fontToDraw;
 
 void drawtext(int x, int y, int color, char text[]) 
@@ -14,9 +15,7 @@ void drawtext(int x, int y, int color, char text[])
   message = TTF_RenderText_Solid(fontToDraw, text, tmpfontcolor);
   //SDL_BlitSurface(resulting_text, NULL, SDL_GetVideoSurface(), &dest);
 
-
-  //Following will (probably) work with gl version 1.4 or later 
-  //glWindowPos2i(0,0);
+  setWindowCursor(50,0);
 
   int smiley[] = {
       0x00000000, 0xCFFFFFFF, 0xCFFFFFFF, 0xCFFFFFFF, 0xCFFFFFFF, 0xCFFFFFFF, 0xCFFFFFFF, 0x00000000,
@@ -45,11 +44,13 @@ void drawtext(int x, int y, int color, char text[])
 }
 TTF_Font* loadfont(char* file, int ptsize) 
 {
-  /*TTF_Font* tmpfont;
+  TTF_Font* tmpfont;
+  /*
   tmpfont = TTF_OpenFont(file, ptsize);
   if (tmpfont == NULL){
     printf("Unable to load font: %s %s \n", file, TTF_GetError());
     // Handle the error here.
   }
-  return tmpfont;*/
+  */
+  return tmpfont;
 }
